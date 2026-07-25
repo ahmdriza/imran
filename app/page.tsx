@@ -1,41 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import MobileHeader from "@/components/layout/MobileHeader";
+import Sidebar from "@/components/layout/Sidebar";
 import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
-import SkillsSection from "@/components/sections/SkillsSection";
-import ResearchSection from "@/components/sections/ResearchSection";
-import ExtracurricularSection from "@/components/sections/ExtracurricularSection";
-import InteractiveCV from "@/components/sections/InteractiveCV";
-import ContactSection from "@/components/sections/ContactSection";
-import CVModal from "@/components/ui/CVModal";
+import ServicesSection from "@/components/sections/ServicesSection";
 
 export default function Home() {
-  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-900 selection:bg-teal-500 selection:text-white">
-      {/* Header Navigation */}
-      <Header onOpenCVModal={() => setIsCVModalOpen(true)} />
+    <div className="min-h-screen bg-background text-on-surface">
+      {/* Mobile TopAppBar */}
+      <MobileHeader onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
-      {/* Main Page Sections */}
-      <main className="flex-grow">
-        <HeroSection onOpenCVModal={() => setIsCVModalOpen(true)} />
-        <AboutSection />
-        <SkillsSection />
-        <ResearchSection />
-        <ExtracurricularSection />
-        <InteractiveCV onOpenModal={() => setIsCVModalOpen(true)} />
-        <ContactSection />
+      {/* SideNavBar (Desktop & Mobile Drawer) */}
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      {/* Content Stage */}
+      <main className="main-canvas min-h-screen relative">
+        <HeroSection />
+        <ServicesSection />
       </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Interactive CV Full Screen Modal */}
-      <CVModal isOpen={isCVModalOpen} onClose={() => setIsCVModalOpen(false)} />
     </div>
   );
 }
