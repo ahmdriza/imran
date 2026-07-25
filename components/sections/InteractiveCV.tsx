@@ -104,7 +104,7 @@ export default function InteractiveCV({ onOpenModal }: InteractiveCVProps) {
             {/* Profile Picture thumbnail */}
             <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-teal-600/30 shadow-md shrink-0 relative">
               <Image
-                src="/profile.png"
+                src="/profile.jpeg"
                 alt="Medical CV Profile Photo"
                 fill
                 className="object-cover"

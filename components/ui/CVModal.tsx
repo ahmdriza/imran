@@ -82,7 +82,7 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
 
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-teal-600/30 shadow-md shrink-0 relative">
                 <Image
-                  src="/profile.png"
+                  src="/profile.jpeg"
                   alt="Medical Student CV Photo"
                   fill
                   className="object-cover"
